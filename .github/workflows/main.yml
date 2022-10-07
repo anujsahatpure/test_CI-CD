@@ -15,7 +15,9 @@ jobs:
         with:
           build: npm run build
           start: npm run dev
-          if: contains(github.event.comment.body, '/revert')
+          #if: contains(github.event.comment.body, '/revert')
+          
+          if: failure()
       - name: Checkout latest code
         uses: actions/checkout@v2
       - name: Automatic Revert
