@@ -16,3 +16,23 @@ jobs:
           build: npm run build
           start: npm run dev
       
+name: Automatic Revert
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  revert-commit:
+
+    runs-on: ubuntu-latest
+
+    if: contains(github.event.comment.body, '/revert')
+
+    steps:
+      - name: Checkout latest code
+        uses: actions/checkout@v2
+      - name: Automatic Revert
+        uses: srt32/revert@v0.0.1
+        env:
+          GITHUB_TOKEN: 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
