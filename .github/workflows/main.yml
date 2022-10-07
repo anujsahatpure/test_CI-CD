@@ -15,12 +15,15 @@ jobs:
         with:
           build: npm run build
           start: npm run dev
-          #if: contains(github.event.comment.body, '/revert')
-          
-          if: failure()
-      - name: Checkout latest code
-        uses: actions/checkout@v2
-      - name: Automatic Revert
-        uses: srt32/revert@v0.0.1
-        env:
+      - name: Rollback Release
+        if: failure()
+        uses: author/action-rollback@stable
+        with:
+          # Using a known release ID
+         release_id: ${{ steps.create_release.id }}
+          # Using a tag name
+         tag: 'v1.0.1'
+          #  If the release does not exist but the tag does, setting this to true will remove the tag.
+         delete_orphan_tag: true
+        env: 
           GITHUB_TOKEN: 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          
