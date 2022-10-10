@@ -151,7 +151,7 @@ describe("User Form Test Cases", () => {
   });
   describe("Select Country Field Test Cases", () => {
     it("Select Country-Russia", () => {
-      userForm.test_Select_Country_Field("Russiaa");
+      userForm.test_Select_Country_Field("Russia");
     });
     it("Select Country-Australia", () => {
       userForm.test_Select_Country_Field("Australia");
