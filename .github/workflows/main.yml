@@ -60,7 +60,7 @@ jobs:
           # Optional (recommended): mail server username:
           username: apikey
           # Optional (recommended) mail server password:
-          password: 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
+          password: 
           # Required mail subject:
           subject: Github Actions job result
           # Required recipients' addresses:
