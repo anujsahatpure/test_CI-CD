@@ -12,12 +12,11 @@ workflows:
           machine:
             image: ubuntu-latest
           steps:
-            -checkout
-              run:
+            - checkout
+            - run:
                 name: Run-testcases
                 command:
                   sudo apt-get update
                   sudo apt install npm
-                with:
-                  build: npm run build
-                  start: npm run dev
+                  npm run build
+                  npm run dev
