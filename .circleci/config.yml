@@ -1,18 +1,12 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1
+  email: cinotify/email@1.2.0
 
 workflows:
-  build:
+  example-workflow:
     jobs:
-      - cypress/install:
-          build: 'npm run build' 
-
-      - cypress/run:
-          requires:
-            - cypress/install
-          record: true # record results on Cypress Dashboard
-          parallel: true # split all specs across machines
-          parallelism: 4 # use 4 CircleCI machines to finish quickly
-          group: 'all tests' # name this group "all tests" on the dashboard
-          start: 'npm start'
+      - email/send:
+          body: 'Configure this notification at https://www.cinotify.cc/'
+          subject: CircleCI job started
+          to: anujscool99@gmail.com
+  
