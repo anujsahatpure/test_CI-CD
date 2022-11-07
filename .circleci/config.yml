@@ -2,7 +2,7 @@ version: '2.1'
 orbs:
   cypress: cypress-io/cypress@2.2.0
 workflows:
-    example-workflow:
+    cypress:
       jobs:
       - cypress/install:
           # run a custom app build step
@@ -17,4 +17,4 @@ workflows:
           parallel: true # split all specs across machines
           parallelism: 4 # use 4 CircleCI machines to finish quickly
           group: 'all tests' # name this group "all tests" on the dashboard
-          start: 'npm start' # start server before running tests
+          start: 'npm run dev' # start server before running tests
