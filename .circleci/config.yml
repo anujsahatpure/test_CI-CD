@@ -13,7 +13,7 @@ workflows:
             image: ubuntu-latest
           steps:
             -checkout
-            - run:
+              run:
                 name: Run-testcases
                 command:
                   sudo apt-get update
