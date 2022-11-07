@@ -1,21 +1,20 @@
 version: '2.1'
 orbs:
-  email: cinotify/email@1.2.3
+  cypress: cypress-io/cypress@2.2.0
 workflows:
-    jobs:
-      - email/send:
-          body: 'Configure this notification at https://www.cinotify.cc/'
-          subject: CircleCI job started
-          to: anujscool99@gmail.com
-      - build_deploy:
-          machine:
-            image: ubuntu-latest
-          steps:
-            - checkout
-            - run:
-                name: Run-testcases
-                command:
-                  sudo apt-get update
-                  sudo apt install npm
-                  npm run build
-                  npm run dev
+    example-workflow:
+      jobs:
+      - cypress/install:
+          # run a custom app build step
+          build: 'npm run build'
+      - cypress/run:
+          # make sure app has been installed and built
+          # before running tests across multiple machines
+          # this avoids installing same dependencies 10 times
+          requires:
+            - cypress/install
+          record: true # record results on Cypress Dashboard
+          parallel: true # split all specs across machines
+          parallelism: 4 # use 4 CircleCI machines to finish quickly
+          group: 'all tests' # name this group "all tests" on the dashboard
+          start: 'npm start' # start server before running tests
