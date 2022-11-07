@@ -2,7 +2,6 @@ version: '2.1'
 # orbs:
 #   email: cinotify/email@1.2.3
 workflows:
-  example-workflow:
     jobs:
 #       - email/send:
 #           body: 'Configure this notification at https://www.cinotify.cc/'
