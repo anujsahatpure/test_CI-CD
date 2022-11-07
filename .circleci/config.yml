@@ -4,9 +4,8 @@ orbs:
 workflows:
     cypress:
       jobs:
-      - cypress/install:
-          # run a custom app build step
-          build: 'npm run build'
+      - cypress/install
+          # run a custom app build step   
       - cypress/run:
           # make sure app has been installed and built
           # before running tests across multiple machines
@@ -17,4 +16,5 @@ workflows:
           parallel: true # split all specs across machines
           parallelism: 4 # use 4 CircleCI machines to finish quickly
           group: 'all tests' # name this group "all tests" on the dashboard
+          build: 'npm run build'
           start: 'npm run dev' # start server before running tests
