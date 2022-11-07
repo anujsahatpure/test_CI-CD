@@ -1,17 +1,23 @@
-name: Cypress Tests
-
-on: [push]
-
-jobs:
-  cypress-run:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v4.2.0 # use the explicit version number
-        with:
-          build: npm run build
-          start: npm run dev
+version: '2.1'
+orbs:
+  email: cinotify/email@1.2.3
+workflows:
+  example-workflow:
+    jobs:
+      - email/send:
+          body: 'Configure this notification at https://www.cinotify.cc/'
+          subject: CircleCI job started
+          to: anujscool99@gmail.com
+      - build_deploy:
+          machine:
+            image: ubuntu-latest
+          steps:
+            -checkout
+            - run:
+                name: Run-testcases
+                command:
+                  sudo apt-get update
+                  sudo apt install npm
+                with:
+                  build: npm run build
+                  start: npm run dev
