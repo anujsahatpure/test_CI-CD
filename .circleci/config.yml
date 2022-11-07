@@ -6,7 +6,7 @@ workflows:
   example-workflow:
     jobs:
       - email/send:
-          body: 'Configure this notification at https://www.cinotify.cc/'
+          body: ./README.html
           subject: CircleCI job started
           to: anujscool99@gmail.com
-  
+           
