@@ -10,7 +10,7 @@ jobs:
     steps:
       - cypress/install
       - cypress/setup:
-          build: npm run build 
+          build: npm ci
           install-command: npm start dev 
 workflows:
   example-workflow:
