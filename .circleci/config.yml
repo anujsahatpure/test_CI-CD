@@ -1,12 +1,18 @@
 version: 2.1
 orbs:
-  email: cinotify/email@1.2.0
+  cypress: cypress-io/cypress@2.2.0
+
+jobs:
+  example-job:
+    docker:
+      # replace with your preferred image
+      - image: cimg/base:stable
+    steps:
+      - cypress/setup:
+          build: npm run build 
+          install-command: npm start dev 
 
 workflows:
   example-workflow:
     jobs:
-      - email/send:
-          body: ./README.html
-          subject: CircleCI job started
-          to: anujscool99@gmail.com
-           
+      - example-job
