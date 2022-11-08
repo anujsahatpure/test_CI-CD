@@ -23,10 +23,4 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
-      - run: $(npm bin)/cypress run --record --key <record_key>
-      - run:
-          name: Build project
-          command: npm run build
-      - run:
-          name: Start project
-          command: npm run dev   
+      - run: $(npm bin)/cypress run --record --key <record_key> 
