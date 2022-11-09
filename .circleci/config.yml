@@ -31,7 +31,10 @@ jobs:
           command: npm run build
       - run:
           name: Run Start
-          command: npm run dev     
+          command: npm run dev
+      - run:
+          name: Run Start
+          command: $(npm bin)/cypress run   
 
 workflows:
   # Below is the definition of your workflow.
