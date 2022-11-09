@@ -29,9 +29,9 @@ jobs:
       - run:
           name: Run Build
           command: npm run build
-      - run:
-          name: Run Start
-          command: npm run dev
+      # - run:
+      #     name: Run Start
+      #     command: npm run dev
       - run:
           name: Run Start
           command: $(npm bin)/cypress run   
