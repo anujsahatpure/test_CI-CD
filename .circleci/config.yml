@@ -1,9 +1,14 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@1
+  email: cinotify/email@1.2.1
 workflows:
   build:
     jobs:
+      - email/send:
+          body: 'CircleCI job started'
+          subject: CircleCI job started
+          to: anujsahatpure16@gmail.com
       - cypress/install:
           build: 'npm run build' # run a custom app build step
       - cypress/run:
@@ -14,3 +19,9 @@ workflows:
           parallelism: 4 # use 4 CircleCI machines to finish quickly
           group: 'all tests' # name this group "all tests" on the dashboard
           start: 'npm run dev' # start server before running tests
+      - email/send:
+          body: 'CircleCI job ended Succesfully'
+          subject: CircleCI job ended Succesfully
+          to: anujsahatpure16@gmail.com    
+      
+    
