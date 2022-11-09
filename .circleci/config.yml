@@ -16,6 +16,8 @@ workflows:
           group: 'all tests' # name this group "all tests" on the dashboard
           start: 'npm run dev' # start server before running tests
       - email/send:
+          requires:
+            - cypress/run
           body: 'CircleCI job ended Succesfully'
           subject: CircleCI job ended Succesfully
           to: anujsahatpure16@gmail.com    
