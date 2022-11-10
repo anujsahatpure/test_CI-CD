@@ -20,6 +20,6 @@ workflows:
             - cypress/run
           body: 'CircleCI job ended Succesfully'
           subject: CircleCI job ended Succesfully
-          to: anujsahatpure16@gmail.com    
+          to: anujsahatpure16@gmail.com, anujscool99@gmail.com  
       
     
