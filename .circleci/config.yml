@@ -21,23 +21,23 @@ workflows:
           body: 'Cypress Ci/Cd Demo Test Cases passed.'
           subject: CircleCI job ended Succesfully
           to: anujsahatpure16@gmail.com
-      - email/send:
-          requires:
-            - cypress/run
-          body: 'Cypress Ci/Cd Demo Test Cases passed.'
-          subject: CircleCI job ended Succesfully
-          to: hardipsinh.inexture@gmail.com   
-      - email/send:
-          requires:
-            - cypress/run
-          body: 'Cypress Ci/Cd Demo Test Cases passed.'
-          subject: CircleCI job ended Succesfully
-          to: pratipalsinh.inexture@gmail.com  
-      - email/send:
-          requires:
-            - cypress/run
-          body: 'Cypress Ci/Cd Demo Test Cases passed.'
-          subject: CircleCI job ended Succesfully
-          to: akshatm.inexture@gmail.com       
+      # - email/send:
+      #     requires:
+      #       - cypress/run
+      #     body: 'Cypress Ci/Cd Demo Test Cases passed.'
+      #     subject: CircleCI job ended Succesfully
+      #     to: hardipsinh.inexture@gmail.com   
+      # - email/send:
+      #     requires:
+      #       - cypress/run
+      #     body: 'Cypress Ci/Cd Demo Test Cases passed.'
+      #     subject: CircleCI job ended Succesfully
+      #     to: pratipalsinh.inexture@gmail.com  
+      # - email/send:
+      #     requires:
+      #       - cypress/run
+      #     body: 'Cypress Ci/Cd Demo Test Cases passed.'
+      #     subject: CircleCI job ended Succesfully
+      #     to: akshatm.inexture@gmail.com       
       
     
